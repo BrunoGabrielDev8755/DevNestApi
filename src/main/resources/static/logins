@@ -1,0 +1,77 @@
+
+PG ADMIN:
+
+
+email:
+
+devnest@gmail.com
+
+password:
+
+devnestpassword
+
+
+PostgreSql :
+
+url: jdbc:postgresql://localhost:8000/devnestdb
+username: admin
+password: admin
+
+
+commands docker:
+
+docker network create dev-network
+085d46e8ce7deb7821ae2a5fe4eb2ed4f737b769bde3d04048273f0b1b3ced62
+
+docker run -d --name dev-postgres --network dev-network -e POSTGRES_USER=admin -e POSTGRES_PASSWORD=admin -e POSTGRES_DB=devnestdb -p 8000:5432 postgres:18
+52a5f9dd24b9c455da053ceaa486809fa08c2782dc052c742aa7aef21b900179
+
+docker run -d --name dev-pgadmin --network dev-network -e PGADMIN_DEFAULT_EMAIL=admin@admin.com -e PGADMIN_DEFAULT_PASSWORD=admin123 -p 8001:80 dpage/pgadmin4
+ac8205a5a974277195d37347a5bd5585bde3b3cd7d9033a510e8e1d454b49531
+
+
+
+
+
+
+Tabelas do banco:
+
+
+
+create table student(
+
+
+
+);
+
+
+create table student(
+
+
+
+
+
+);
+
+
+
+create table student(
+
+
+
+
+
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
