@@ -23,6 +23,6 @@ public class GetTeacherUserCase {
         return null;
     }
 
-    HashMap<String> inteiro = new HashMap<>();
+
 
 }
