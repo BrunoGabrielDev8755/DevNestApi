@@ -1,6 +1,6 @@
 package devnastapi.devnestapi.student.model;
 
-import devnastapi.devnestapi.common.abstractclasses.User;
+import devnastapi.devnestapi.common.genericclasses.User;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

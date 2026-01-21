@@ -1,8 +1,7 @@
 package devnastapi.devnestapi.student.authservice;
 
-import devnastapi.devnestapi.common.abstractclasses.CustomUserDetailsService;
+import devnastapi.devnestapi.common.genericclasses.CustomUserDetailsService;
 import devnastapi.devnestapi.student.model.Student;
-import devnastapi.devnestapi.student.repository.StudentRepository;
 import devnastapi.devnestapi.student.service.StudentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.User;

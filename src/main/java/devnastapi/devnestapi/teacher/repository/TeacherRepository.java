@@ -15,6 +15,8 @@ public interface TeacherRepository extends JpaRepository<Teacher, UUID> {
 
     Teacher findAllByCourses(Course course);
 
+    Teacher findByEmail(String mail);
+
     @Query("select id,  from teacher ")
     Teacher findForAdmin();
 

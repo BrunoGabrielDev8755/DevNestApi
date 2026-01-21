@@ -1,6 +1,6 @@
 package devnastapi.devnestapi.teacher.model;
 
-import devnastapi.devnestapi.common.abstractclasses.User;
+import devnastapi.devnestapi.common.genericclasses.User;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;

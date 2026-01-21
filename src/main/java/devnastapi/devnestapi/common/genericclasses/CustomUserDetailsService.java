@@ -1,4 +1,4 @@
-package devnastapi.devnestapi.common.abstractclasses;
+package devnastapi.devnestapi.common.genericclasses;
 
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

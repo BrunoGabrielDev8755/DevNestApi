@@ -63,5 +63,9 @@ public class TeacherService {
         return repository.findAll();
     }
 
+    public Teacher searchOnDb(String email){
+        return repository.findByEmail(email);
+    }
+
     
 }

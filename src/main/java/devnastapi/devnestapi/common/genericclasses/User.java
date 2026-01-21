@@ -1,8 +1,7 @@
-package devnastapi.devnestapi.common.abstractclasses;
+package devnastapi.devnestapi.common.genericclasses;
 
 import lombok.Data;
 import java.time.LocalDate;
-import java.util.List;
 
 
 @Data
