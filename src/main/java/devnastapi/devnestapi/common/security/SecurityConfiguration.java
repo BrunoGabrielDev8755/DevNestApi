@@ -47,7 +47,7 @@ public class SecurityConfiguration {
 
     @Bean
     public UserDetailsService teacherUserDetailsService(TeacherService teacherService) {
-        return new TeacherUserDetailsService(teacherService);
+        return new TeacherUserDetailsService (teacherService);
     }
 
 

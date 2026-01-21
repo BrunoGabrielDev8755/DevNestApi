@@ -5,19 +5,14 @@ import devnastapi.devnestapi.teacher.model.Teacher;
 import devnastapi.devnestapi.teacher.service.TeacherService;
 import lombok.RequiredArgsConstructor;
 
-import java.util.Optional;
-
 @RequiredArgsConstructor
-public class GetTeacherUserCase {
+public class DeleteTeacherUseCase {
 
     private final Helpers helpers;
     private final TeacherService service;
 
-    public Teacher getTeacherBYId(String id){
-        Optional<Teacher> teacher = service.getTeacherById(helpers.idFromString(id));
-        return teacher.orElse(null);
+    public String deleteTeacherById(String id){
+        service.deleteTeacher(helpers.idFromString(id));
+        return "this docent he was delete with sucessful";
     }
-
-
-
 }

@@ -2,14 +2,14 @@ package devnastapi.devnestapi.teacher.controller;
 
 import devnastapi.devnestapi.common.genericinterfaces.GenericControllerInterface;
 import devnastapi.devnestapi.teacher.application.CreateTeacherUseCase;
+import devnastapi.devnestapi.teacher.application.DeleteTeacherUseCase;
+import devnastapi.devnestapi.teacher.application.GetTeacherUserCase;
+import devnastapi.devnestapi.teacher.application.UpdateTeacherUseCase;
 import devnastapi.devnestapi.teacher.dto.TeacherDto;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 
 @RequiredArgsConstructor
@@ -18,7 +18,9 @@ public class TeacherController implements GenericControllerInterface {
 
 
     private final CreateTeacherUseCase createTeacherUseCase;
-    private final CreateTeacherUseCase getTeacherUserCase;
+    private final GetTeacherUserCase getTeacherUserCase;
+    private final DeleteTeacherUseCase deleteTeacherUseCase;
+    private final UpdateTeacherUseCase updateTeacherUseCase;
 
 
     @PostMapping
@@ -27,10 +29,21 @@ public class TeacherController implements GenericControllerInterface {
         return ResponseEntity.created(generateHeaderLocation(createdTeacher.getId())).body("Student created successfully! ID:" + createdTeacher.getId());
     }
 
-    public ResponseEntity<Object> getTeacher(@RequestParam String id){
 
-        return ResponseEntity.ok("");
+    @GetMapping("/{id}")
+    public ResponseEntity<Object> getTeacherById(@PathVariable("id") String id) {
+        var teacher = getTeacherUserCase.getTeacherBYId(id);
+        return ResponseEntity.ok(teacher);
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Object> deleteTeacher(@PathVariable("id")String id){
+        var deletedTeacher = deleteTeacherUseCase.deleteTeacherById(id);
+        return ResponseEntity.ok().body(deletedTeacher);
+    }
+
+
+
 
 
 

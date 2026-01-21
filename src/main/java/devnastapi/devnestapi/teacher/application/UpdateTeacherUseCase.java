@@ -5,19 +5,15 @@ import devnastapi.devnestapi.teacher.model.Teacher;
 import devnastapi.devnestapi.teacher.service.TeacherService;
 import lombok.RequiredArgsConstructor;
 
-import java.util.Optional;
-
 @RequiredArgsConstructor
-public class GetTeacherUserCase {
+public class UpdateTeacherUseCase {
 
     private final Helpers helpers;
     private final TeacherService service;
 
-    public Teacher getTeacherBYId(String id){
-        Optional<Teacher> teacher = service.getTeacherById(helpers.idFromString(id));
-        return teacher.orElse(null);
+    public boolean UpdateTeacher(String id, Teacher teacher){
+        service.UpadateTeacherById(helpers.idFromString(id) ,teacher);
+        return true;
     }
-
-
 
 }

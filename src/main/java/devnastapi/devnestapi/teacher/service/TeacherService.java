@@ -10,7 +10,6 @@ import devnastapi.devnestapi.teacher.validator.TeacherValidator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -46,6 +45,19 @@ public class TeacherService {
         }
         var foundedTeacher = repository.findById(id);
         return foundedTeacher;
+    }
+
+    public Teacher UpadateTeacherById(UUID id , Teacher teacher){
+        if(!validator.teacherExistsById(id)){
+            throw new NotFoundUserException("this User dont Exists");
+        }
+        Teacher teacherUpdated = new Teacher();
+        teacherUpdated.setPassword(teacher.getPassword());
+        teacherUpdated.setMail(teacherUpdated.getMail());
+        teacherUpdated.setName(teacher.getName());
+        repository.save(teacherUpdated);
+
+        return teacherUpdated;
     }
 
 
