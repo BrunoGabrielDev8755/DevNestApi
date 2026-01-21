@@ -3,7 +3,6 @@ package devnastapi.devnestapi.teacher.service;
 
 import devnastapi.devnestapi.common.exceptions.usergenericexceptions.DuplicateUserException;
 import devnastapi.devnestapi.common.exceptions.usergenericexceptions.NotFoundUserException;
-import devnastapi.devnestapi.common.helpers.Helpers;
 import devnastapi.devnestapi.course.model.Course;
 import devnastapi.devnestapi.teacher.model.Teacher;
 import devnastapi.devnestapi.teacher.repository.TeacherRepository;
@@ -16,13 +15,14 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-@RequiredArgsConstructor
 @Service
+@RequiredArgsConstructor
 public class TeacherService {
 
     private final TeacherRepository repository;
     private final TeacherValidator validator;
     private final PasswordEncoder encoder;
+
 
     public Teacher createNewTeacher(Teacher teacher){
         if(!validator.teacherExistsByEmail(teacher)){

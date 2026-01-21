@@ -115,4 +115,9 @@ public class StudentService{
         return repository.findAll(studentExample);
     }
 
+
+    public Student searchOnDb(String email){
+        return repository.findByEmail(email);
+    }
+
 }

@@ -1,28 +1,38 @@
 package devnastapi.devnestapi.teacher.model;
 
-import devnastapi.devnestapi.people.model.People;
+import devnastapi.devnestapi.common.abstractclasses.User;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import lombok.Data;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import java.util.Date;
 import java.util.UUID;
 
+@Data
 @Table
 @Entity(name = "teacher")
-public class Teacher extends People {
+public class Teacher extends User {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     @Column
     UUID id;
 
-    @Column(name = "password")
+    @NotBlank(message = "O nome não pode estar vazio")
+    @Column(name = "name", nullable = false)
+    private String name;
+
+    @NotBlank(message = "A senha não pode estar vazia")
+    @Column(name = "password" ,nullable = false)
     String password;
 
-    @Column(name = "mail")
+    @NotBlank(message = "O email não pode estar vazio")
+    @Column(name = "mail" , nullable = false)
     String mail;
 
+    @NotBlank(message = "O nome do curso não pode estar vazio")
     @OneToMany(mappedBy = "name_of_course")
-    @Column(name = "course")
+    @Column(name = "course", nullable = false)
     String Course;
 
     @CreatedDate
@@ -30,54 +40,4 @@ public class Teacher extends People {
 
     @LastModifiedDate
     Date lastModifyDate;
-
-    @Override
-    public String getPassword() {
-        return password;
-    }
-
-    @Override
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public UUID getId() {
-        return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
-    }
-
-    public String getMail() {
-        return mail;
-    }
-
-    public void setMail(String mail) {
-        this.mail = mail;
-    }
-
-    public String getCourse() {
-        return Course;
-    }
-
-    public void setCourse(String course) {
-        Course = course;
-    }
-
-    public Date getDateOfCreation() {
-        return dateOfCreation;
-    }
-
-    public void setDateOfCreation(Date dateOfCreation) {
-        this.dateOfCreation = dateOfCreation;
-    }
-
-    public Date getLastModifyDate() {
-        return lastModifyDate;
-    }
-
-    public void setLastModifyDate(Date lastModifyDate) {
-        this.lastModifyDate = lastModifyDate;
-    }
 }

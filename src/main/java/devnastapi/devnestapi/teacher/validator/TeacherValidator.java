@@ -16,7 +16,7 @@ public class TeacherValidator {
     }
 
     public boolean teacherExistsByEmail(Teacher teacher){
-        return repository.existsByEmail(teacher.getEmail());
+        return repository.existsByEmail(teacher.getMail());
     }
 
     public boolean teacherExistsById(UUID id){
