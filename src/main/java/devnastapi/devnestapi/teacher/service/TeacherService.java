@@ -27,8 +27,9 @@ public class TeacherService {
         if(!validator.teacherExistsByEmail(teacher)){
             throw new DuplicateUserException("this user alredy exists");
         }
-            teacher.setPassword(encoder.encode(teacher.getPassword()));
-            repository.save(teacher);
+            Teacher teacherSaved = new Teacher();
+            teacherSaved.setPassword(encoder.encode(teacher.getPassword()));
+            repository.save(teacherSaved);
         return teacher;
     }
 
