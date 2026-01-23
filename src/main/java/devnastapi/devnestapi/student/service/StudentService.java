@@ -43,6 +43,7 @@ public class StudentService{
             throw new DuplicateUserException("This user already exists");
         }
         student.setPassword(encoder.encode(student.getPassword()));
+        student.setRoles("STUDENT");
         return repository.save(student);
     }
 
@@ -115,8 +116,7 @@ public class StudentService{
         return repository.findAll(studentExample);
     }
 
-
-    public Student searchOnDb(String email){
+    public Student searchOnDb(String email) {
         return repository.findByEmail(email);
     }
 

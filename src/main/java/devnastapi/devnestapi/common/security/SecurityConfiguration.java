@@ -1,9 +1,5 @@
 package devnastapi.devnestapi.common.security;
 
-import devnastapi.devnestapi.student.authservice.StudentUserDetailsService;
-import devnastapi.devnestapi.student.service.StudentService;
-import devnastapi.devnestapi.teacher.authService.TeacherUserDetailsService;
-import devnastapi.devnestapi.teacher.service.TeacherService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -13,6 +9,7 @@ import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
+import org.springframework.security.config.core.GrantedAuthorityDefaults;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -41,18 +38,9 @@ public class SecurityConfiguration {
     }
 
     @Bean
-    public UserDetailsService studentUserDetailsService(StudentService studentService) {
-        return new StudentUserDetailsService(studentService);
+    public GrantedAuthorityDefaults grantedAuthorityDefaults(){
+        return new GrantedAuthorityDefaults("");
     }
-
-    @Bean
-    public UserDetailsService teacherUserDetailsService(TeacherService teacherService) {
-        return new TeacherUserDetailsService (teacherService);
-    }
-
-
-
-
     @Bean
     public PasswordEncoder encoder() {
         return new BCryptPasswordEncoder(10);
