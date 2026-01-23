@@ -24,7 +24,7 @@ public class StudentAuthProvider implements AuthenticationProvider {
 
         String login = authentication.getName();
 
-        String rawPassword = authentication.toString();
+        String rawPassword = authentication.getCredentials().toString();
 
         Student studentFounded = service.searchOnDb(login);
 
@@ -37,7 +37,12 @@ public class StudentAuthProvider implements AuthenticationProvider {
         boolean passwordMatches = encoder.matches(rawPassword, passwordOnDb);
 
         if (passwordMatches){
-            return new StudentAuthentication(studentFounded);
+
+            Authentication auth = new StudentAuthentication(studentFounded);
+
+            auth.setAuthenticated(true);
+
+            return auth;
         }
 
         throw new UsernameNotFoundException("Email or Password is uncorrectly");
