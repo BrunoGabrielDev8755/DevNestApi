@@ -3,13 +3,11 @@ package devnastapi.devnestapi.teacher.model;
 import devnastapi.devnestapi.common.genericclasses.User;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
-import lombok.Data;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import java.util.Date;
 import java.util.UUID;
 
-@Data
 @Table
 @Entity(name = "teacher")
 public class Teacher extends User {
