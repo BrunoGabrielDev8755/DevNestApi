@@ -9,6 +9,12 @@ import lombok.RequiredArgsConstructor;
 public class UpdateTeacherUseCase {
 
     private final Helpers helpers;
+
+    public UpdateTeacherUseCase(TeacherService service, Helpers helpers) {
+        this.service = service;
+        this.helpers = helpers;
+    }
+
     private final TeacherService service;
 
     public boolean UpdateTeacher(String id, Teacher teacher){

@@ -6,7 +6,6 @@ import devnastapi.devnestapi.course.dto.CourseDto;
 import devnastapi.devnestapi.course.mapper.CourseMapper;
 import devnastapi.devnestapi.course.service.CourseService;
 import jakarta.validation.Valid;
-import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -17,15 +16,21 @@ import org.springframework.web.bind.annotation.*;
  * Provides endpoints for creating, searching, retrieving, and deleting courses.
  * Access to these routes is restricted based on user roles defined in the system.
  */
-@RequiredArgsConstructor
 @RestController
 @RequestMapping("/courses")
-public class CourseControllerInerface implements GenericControllerInterface {
+public class CourseControllerInterface implements GenericControllerInterface {
 
     private final CourseMapper mapper;
     private final CourseService service;
     private final Helpers helpers;
 
+    public CourseControllerInterface(CourseMapper mapper,
+                                     CourseService service,
+                                     Helpers helpers){
+        this.helpers = helpers;
+        this.service = service;
+        this.mapper = mapper;
+}
     /**
      * Creates a new instance of {@link CourseControllerInerface} using constructor injection.
      *

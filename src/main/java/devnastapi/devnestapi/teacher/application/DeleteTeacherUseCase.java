@@ -8,6 +8,11 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class DeleteTeacherUseCase {
 
+    public DeleteTeacherUseCase(Helpers helpers, TeacherService service) {
+        this.helpers = helpers;
+        this.service = service;
+    }
+
     private final Helpers helpers;
     private final TeacherService service;
 

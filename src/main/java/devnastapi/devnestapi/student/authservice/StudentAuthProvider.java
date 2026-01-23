@@ -13,11 +13,15 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 @Component
-@RequiredArgsConstructor
 public class StudentAuthProvider implements AuthenticationProvider {
 
     private final PasswordEncoder encoder;
     private final StudentService service;
+
+    public StudentAuthProvider(PasswordEncoder encoder, StudentService service) {
+        this.encoder = encoder;
+        this.service = service;
+    }
 
     @Override
     public @Nullable Authentication authenticate(Authentication authentication) throws AuthenticationException {

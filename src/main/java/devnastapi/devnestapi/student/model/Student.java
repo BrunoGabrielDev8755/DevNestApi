@@ -20,10 +20,49 @@ import java.util.UUID;
  *
  * <p>Stored in the database table <b>student</b> under schema <b>public</b>.</p>
  */
-@Data
 @Entity
 @Table(name = "student", schema = "public")
 public class Student extends User{
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getRoles() {
+        return roles;
+    }
+
+    public void setRoles(String roles) {
+        this.roles = roles;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public LocalDate getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(LocalDate dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
 
     /**
      * Unique identifier for the student.
@@ -41,6 +80,14 @@ public class Student extends User{
     @NotBlank(message = "")
     @Column(name = "name", nullable = false)
     private String name;
+
+    public String getCourse() {
+        return course;
+    }
+
+    public void setCourse(String course) {
+        this.course = course;
+    }
 
     /**
      * Password used for authentication.
@@ -90,6 +137,10 @@ public class Student extends User{
     @CreatedDate
     @Column(name = "create_date")
     private LocalDate createDate;
+
+    public UUID getId() {
+        return id;
+    }
 
     /**
      * Roles assigned to the student for authorization purposes.

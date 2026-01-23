@@ -17,6 +17,16 @@ import org.springframework.web.bind.annotation.*;
 public class TeacherController implements GenericControllerInterface {
 
 
+    public TeacherController(CreateTeacherUseCase createTeacherUseCase
+            , UpdateTeacherUseCase updateTeacherUseCase
+            , DeleteTeacherUseCase deleteTeacherUseCase
+            , GetTeacherUserCase getTeacherUserCase) {
+        this.createTeacherUseCase = createTeacherUseCase;
+        this.updateTeacherUseCase = updateTeacherUseCase;
+        this.deleteTeacherUseCase = deleteTeacherUseCase;
+        this.getTeacherUserCase = getTeacherUserCase;
+    }
+
     private final CreateTeacherUseCase createTeacherUseCase;
     private final GetTeacherUserCase getTeacherUserCase;
     private final DeleteTeacherUseCase deleteTeacherUseCase;

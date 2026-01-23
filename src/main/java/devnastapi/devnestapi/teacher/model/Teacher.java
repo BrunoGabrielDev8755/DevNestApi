@@ -22,6 +22,38 @@ public class Teacher extends User {
     @Column(name = "name", nullable = false)
     private String name;
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getMail() {
+        return mail;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
+
+    public UUID getId() {
+        return id;
+    }
+
+    public String getCourse() {
+        return Course;
+    }
+
     @NotBlank(message = "A senha não pode estar vazia")
     @Column(name = "password" ,nullable = false)
     String password;
@@ -32,7 +64,7 @@ public class Teacher extends User {
 
     @NotBlank(message = "O nome do curso não pode estar vazio")
     @OneToMany(mappedBy = "name_of_course")
-    @Column(name = "course", nullable = false)
+    @Column(name = "course")
     String Course;
 
     @CreatedDate

@@ -17,6 +17,10 @@ import java.util.UUID;
 @Component
 public class StudentValidator {
 
+    public StudentValidator(StudentRepository studentRepository) {
+        this.studentRepository = studentRepository;
+    }
+
     private final StudentRepository studentRepository;
 
     public boolean studentExistsByEmail(Student student) {

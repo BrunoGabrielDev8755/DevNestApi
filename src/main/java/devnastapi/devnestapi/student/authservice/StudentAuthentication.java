@@ -14,6 +14,10 @@ import java.util.List;
 @RequiredArgsConstructor
 public class StudentAuthentication implements Authentication {
 
+    public StudentAuthentication(Student student) {
+        this.student = student;
+    }
+
     private final Student student;
 
 

@@ -1,10 +1,7 @@
 package devnastapi.devnestapi.common.genericclasses;
 
-import lombok.Data;
 import java.time.LocalDate;
 
-
-@Data
 public class User {
 
     private String name;

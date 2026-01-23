@@ -11,6 +11,12 @@ import java.util.Optional;
 public class GetTeacherUserCase {
 
     private final Helpers helpers;
+
+    public GetTeacherUserCase(Helpers helpers, TeacherService service) {
+        this.helpers = helpers;
+        this.service = service;
+    }
+
     private final TeacherService service;
 
     public Teacher getTeacherBYId(String id){

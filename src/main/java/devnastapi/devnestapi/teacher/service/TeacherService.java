@@ -7,7 +7,7 @@ import devnastapi.devnestapi.course.model.Course;
 import devnastapi.devnestapi.teacher.model.Teacher;
 import devnastapi.devnestapi.teacher.repository.TeacherRepository;
 import devnastapi.devnestapi.teacher.validator.TeacherValidator;
-import lombok.RequiredArgsConstructor;
+import org.springframework.core.codec.Encoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -15,13 +15,19 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Service
-@RequiredArgsConstructor
 public class TeacherService {
 
     private final TeacherRepository repository;
     private final TeacherValidator validator;
     private final PasswordEncoder encoder;
 
+    public TeacherService(TeacherRepository repository
+            , TeacherValidator validator
+            , PasswordEncoder encoder){
+        this.repository = repository;
+        this.validator = validator;
+        this.encoder = encoder;
+    }
 
     public Teacher createNewTeacher(Teacher teacher){
         if(!validator.teacherExistsByEmail(teacher)){

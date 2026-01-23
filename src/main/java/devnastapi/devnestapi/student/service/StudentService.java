@@ -28,6 +28,13 @@ public class StudentService{
 
     private final StudentRepository repository; // operations with database
     private final StudentValidator validator;    // validators for Student class
+
+    public StudentService(StudentRepository repository, StudentValidator validator, PasswordEncoder encoder) {
+        this.repository = repository;
+        this.validator = validator;
+        this.encoder = encoder;
+    }
+
     private final PasswordEncoder encoder;
 
     /**

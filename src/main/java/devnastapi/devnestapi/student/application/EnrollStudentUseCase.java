@@ -9,11 +9,16 @@ import org.springframework.stereotype.Component;
 
 
 @Component
-@RequiredArgsConstructor
+
 public class EnrollStudentUseCase {
 
     private final StudentService service;
     private final StudentMapper mapper;
+
+    public EnrollStudentUseCase(StudentMapper mapper, StudentService service) {
+        this.mapper = mapper;
+        this.service = service;
+    }
 
     public StudentDto execute(StudentDto dto) {
         Student saved = service.createNewStudent(mapper.ToEntity(dto));
